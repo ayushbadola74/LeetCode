@@ -1,0 +1,8 @@
+# Ignore all executables in every subfolder
+**/*.exe
+
+# Ignore VS Code system folders
+.vscode/
+
+# Ignore any other compiled files
+*.o
