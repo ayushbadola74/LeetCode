@@ -1,30 +1,37 @@
 #include<iostream>
 #include<string>
 using namespace std;
+
 int myAtoi(string s) 
 {
-    int count =0;
-    string result="";
-    for(int i=0;i<s.size();i++)
+    string result = "";
+
+    for(int i = 0; i < s.size(); i++)
     {
-        if(s[i]==' ' && count==0)
-        {
-            count++;
-            continue;
-        }
-        if(s[i]=='0' && count==0)
-        {
-            count++;
-            continue;
-        }
         if(isdigit(s[i]))
         {
-            result+=s[i];
+            result += s[i];
+        }
+        else if(result.size() > 0)
+        {
+            break; // stop when digits end
         }
     }
-    return result;
+
+    // convert string to int
+    int num = 0;
+    for(char c : result)
+    {
+        num = num * 10 + (c - '0');
+    }
+
+    return num;
 }
+
 int main()
 {
-   return 0;
+    string s = "13345ejdje";
+    cout << myAtoi(s) << endl;
+
+    return 0;
 }
